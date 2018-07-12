@@ -17,19 +17,29 @@
 
 // console.log(capitalizeLetter("i am four years old"));
 
-function capitalizePhrase(string) {
-    let arrayOfWords = string.split(" ");
-    let finalArray =[];
-    //capitalize Words in array
-    let capitalizeWords = arrayOfWords.forEach(function(word) {
-        let firstLetter = word.charAt(0);
-        let remainingLetters = word[word.length] - word[0]
-        let upperCasedWord= firstLetter.toUpperCase();
-        finalArray.push(upperCasedWord + remainingLetters);
-    });
-    let finalSentence= finalArray.join(' ');
-    return finalSentence;
+// function capitalizePhrase(string) {
+//     let arrayOfWords = string.split(" ");
+//     let finalArray =[];
+//     //capitalize Words in array
+//     let capitalizeWords = arrayOfWords.forEach(function(word) {
+//         let firstLetter = word.charAt(0);
+//         let remainingLetters = word[word.length] - word[0]
+//         let upperCasedWord= firstLetter.toUpperCase();
+//         finalArray.push(upperCasedWord + remainingLetters);
+//     });
+//     let finalSentence= finalArray.join(' ');
+//     return finalSentence;
     
-}
-let test1 = capitalizePhrase("devCodeCamp is awesome");
-console.log(test1);
+// }
+// let test1 = capitalizePhrase("devCodeCamp is awesome");
+// console.log(test1);
+
+function capitalizeString(string) {
+    for(let i = 0; i < string.length; i++) {
+        let firstLetter = string.charAt(0).toUpperCase();
+        if (string)
+    }
+    
+};
+let result = capitalizeString("what is up my dudez");
+console.log(result)
