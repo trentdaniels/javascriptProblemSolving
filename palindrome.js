@@ -5,7 +5,7 @@
 // ee if it is a Palindrome and reports the result
 
 function isPalindrome(string){
-    let wordSpelledForward = string;
+    let wordSpelledForward = string.toLowerCase();
     let wordSpelledBackward = wordSpelledForward.split('').reverse().join('');
     if (wordSpelledForward === wordSpelledBackward) {
         return message() + ' true';
