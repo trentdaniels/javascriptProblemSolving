@@ -1,3 +1,5 @@
+"use strict";
+
 // If a number is happy, then all members of its sequence are happy;
 // if a number is unhappy, all members of the sequence are unhappy.
 
@@ -31,24 +33,56 @@
 //if one is never reached, number is unhappy
 
 function isHappyNumber(number) {
-    let stringNumber = number.toString()
-    let arrayOfNumbers = stringNumber.split('');
     let sum;
     while (sum !== 1) {
-        for (let i = 0; i < arrayOfNumbers.length; i++) {
-            let digit = arrayOfNumbers[i];
-            let digitSquared = digit[i] * digit[i];
-            sum = digitSquared[i] + digitSquared[i+1];
-        }
+        let arrayOfDigits = getArrayOfNumbers(number);
+        sum = computeNewHappyNumber(arrayOfDigits);
         if (sum === 1) {
-            return "It's a happy number!";
+            return 'Your number is happy!';
         }
         else {
-            return "Not happy!";
+            return 'Your number is unhappy!';
         }
     }
 
+};
+function computeNewHappyNumber(array) {
+    let newNumber;
+    let resultArray = [];
+    while (newNumber !== 1) {
+        newNumber = 0;
+        for (let i = 0; i < array.length; i++) {
+            let digit = array[i];
+            let digitSquared = Math.pow(digit, 2);
+            newNumber += digitSquared;
+        }
+        resultArray.push(newNumber);
+        let checkResultArray = checkForRepeats(resultArray);
+        if (checkResultArray === 'Found Repeat') {
+            return false;
+        };
+        array = getArrayOfNumbers(newNumber);
+    }
+        return newNumber;
+   
+};
+
+function getArrayOfNumbers (number) {
+    let stringNumber = number.toString();
+    let arrayOfNumbers = stringNumber.split('');
+    return arrayOfNumbers;
+
 }
 
-let result = isHappyNumber(19);
+function checkForRepeats(array) {
+    let sortedArray = array.sort();
+    for (let i = 0; i < sortedArray.length; i++) {
+        if (sortedArray[i] === sortedArray[i+1]) {
+            return 'Found Repeat';
+        }
+    }
+    
+}
+
+let result = isHappyNumber(989);
 console.log(result);
