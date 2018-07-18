@@ -84,5 +84,4 @@ function checkForRepeats(array) {
     
 }
 
-let result = isHappyNumber(989);
-console.log(result);
+console.log(isHappyNumber(989));
